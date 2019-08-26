@@ -182,3 +182,4 @@ Snort exiting
 ```sh
 alert tcp any any -> 192.168.1.105 any (msg: "NMAP TCP Scan";sid:10000005;) 
 ```
+https://github.com/lanceyvang/blue_team/blob/master/Workshops/bt_6/logs/nmap_alert.txt
