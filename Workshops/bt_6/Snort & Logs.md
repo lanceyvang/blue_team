@@ -183,3 +183,188 @@ Snort exiting
 alert tcp any any -> 192.168.1.105 any (msg: "NMAP TCP Scan";sid:10000005;) 
 ```
 https://github.com/lanceyvang/blue_team/blob/master/Workshops/bt_6/logs/nmap_alert.txt
+
+# Python
+```python
+#!/usr/bin/env python
+import sys
+import re
+​
+def create_content():
+    file = open(sys.argv[1], 'r')
+    content = file.read()
+    file.close()
+    return content
+​
+def create_dict(li):
+    ip_dict = {}
+    for ip_address in li:
+        if ip_address in ip_dict: ip_dict[ip_address] += 1
+        else: ip_dict[ip_address] = 1
+    return ip_dict
+​
+def sort_ip_li(dict):
+    def compare_ip(ip):
+        return int(ip.split('.')[0])
+    def compare_amount(key):
+        return dict[key]
+    first_sort = sorted(dict, key = compare_ip)
+    return sorted(first_sort, key = compare_amount)
+​
+def format_amount(n):
+    n_str = str(n)
+    if len(n_str) == 1: n_str = '00' + n_str
+    elif len(n_str) == 2: n_str = '0' + n_str 
+    return '('+ n_str + ')'
+​
+def print_ip_lines(li, dict):
+    for ip in li:
+        validate = re.search(r"^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", ip)
+        print(format_amount(dict[ip]) + ' ' + str(bool(validate)) + ': ' + ip + ' *' )
+​
+def main():
+    content = create_content()
+    all_ips = re.findall(r"[0-9]+\.[0-9]+\.[0-9]+.[0-9]+", content)
+    ip_dict = create_dict(all_ips)
+    sorted_ips = sort_ip_li(ip_dict)
+    print_ip_lines(sorted_ips, ip_dict)
+​
+main()
+​
+# OUTPUT
+# (001) False: 1.1234.1.1 *
+# (001) False: 7.888.8.8 *       
+# (001) True: 11.11.11.105 *     
+# (001) True: 11.11.11.95 *      
+# (001) True: 24.17.237.70 *     
+# (001) True: 141.101.98.63 *    
+# (001) True: 141.101.98.43 *    
+# (001) True: 141.101.97.63 *    
+# (001) True: 141.101.198.63 *   
+# (001) True: 141.101.98.53 *    
+# (001) False: 444.2.2.2 *       
+# (001) False: 555.1.1.1 *       
+# (001) False: 777.777.7777.777 *
+# (001) False: 888.8888.888.888 *
+# (001) False: 999.999.999 *     
+# (002) True: 2.2.2.2 *
+# (002) False: 09.01.02.03 *     
+# (002) True: 141.102.98.63 *    
+# (003) True: 11.11.11.89 *      
+# (003) True: 141.101.98.61 *    
+# (004) True: 11.11.11.70 *      
+# (004) True: 192.150.249.87 *   
+# (004) True: 211.168.230.94 *
+# (045) True: 127.0.0.1 *
+# (049) True: 211.190.205.93 *
+# (050) True: 61.73.94.162 *
+```
+### Find Letter in String
+```python
+#!/usr/bin/env python3
+import sys
+
+def but_really_parse(s, c):
+    index = s.find(c)
+    # print(s, c, index)
+    print(s[:index+1])
+
+def process(line):
+    # this should take in a line and print to the screen the result
+    # pass
+    line = line.strip().split(' )
+    # string, character = line
+    string = line[0]
+    character = line[1]
+    # print(line, string, character)
+    but_really_parse(string, character)
+
+def main():
+    filename = sys.argv[1]
+    f = open(filename, 'r')
+    lines = f.readlines()
+
+    for line in lines:
+        process(line)
+
+if __name__ == '__main__':
+    main()
+```
+
+## Back to Python!
+Given a log file, grab as many IP addresses (4 octet numbers) as you can and push those numbers through an IP address validator to verify their correctness. Print out if they are valid or not. Keep track of how many times you see each IP address. Pay close attention to the example output for the formatting and ordering details. 
+Example input: ip_finder_and_validator_data1.txt
+```python
+#!/usr/bin/env python
+import sys
+import re
+​
+def create_content():
+    file = open(sys.argv[1], 'r')
+    content = file.read()
+    file.close()
+    return content
+​
+def create_dict(li):
+    ip_dict = {}
+    for ip_address in li:
+        if ip_address in ip_dict: ip_dict[ip_address] += 1
+        else: ip_dict[ip_address] = 1
+    return ip_dict
+​
+def sort_ip_li(dict):
+    def compare_ip(ip):
+        return int(ip.split('.')[0])
+    def compare_amount(key):
+        return dict[key]
+    first_sort = sorted(dict, key = compare_ip)
+    return sorted(first_sort, key = compare_amount)
+​
+def format_amount(n):
+    n_str = str(n)
+    if len(n_str) == 1: n_str = '00' + n_str
+    elif len(n_str) == 2: n_str = '0' + n_str 
+    return '('+ n_str + ')'
+​
+def print_ip_lines(li, dict):
+    for ip in li:
+        validate = re.search(r"^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", ip)
+        print(format_amount(dict[ip]) + ' ' + str(bool(validate)) + ': ' + ip + ' *' )
+​
+def main():
+    content = create_content()
+    all_ips = re.findall(r"[0-9]+\.[0-9]+\.[0-9]+.[0-9]+", content)
+    ip_dict = create_dict(all_ips)
+    sorted_ips = sort_ip_li(ip_dict)
+    print_ip_lines(sorted_ips, ip_dict)
+​
+main()
+​
+# OUTPUT
+# (001) False: 1.1234.1.1 *
+# (001) False: 7.888.8.8 *       
+# (001) True: 11.11.11.105 *     
+# (001) True: 11.11.11.95 *      
+# (001) True: 24.17.237.70 *     
+# (001) True: 141.101.98.63 *    
+# (001) True: 141.101.98.43 *    
+# (001) True: 141.101.97.63 *    
+# (001) True: 141.101.198.63 *   
+# (001) True: 141.101.98.53 *    
+# (001) False: 444.2.2.2 *       
+# (001) False: 555.1.1.1 *       
+# (001) False: 777.777.7777.777 *
+# (001) False: 888.8888.888.888 *
+# (001) False: 999.999.999 *     
+# (002) True: 2.2.2.2 *
+# (002) False: 09.01.02.03 *     
+# (002) True: 141.102.98.63 *    
+# (003) True: 11.11.11.89 *      
+# (003) True: 141.101.98.61 *    
+# (004) True: 11.11.11.70 *      
+# (004) True: 192.150.249.87 *   
+# (004) True: 211.168.230.94 *
+# (045) True: 127.0.0.1 *
+# (049) True: 211.190.205.93 *
+# (050) True: 61.73.94.162 *
+```
