@@ -277,3 +277,8 @@ IPV6-ICMP TTL:1 TOS:0x0 ID:256 IpLen:40 DgmLen:76
 08/26-11:16:35.813641 fe80::4df1:e0bd:b460:aff -> ff02::16
 IPV6-ICMP TTL:1 TOS:0x0 ID:256 IpLen:40 DgmLen:76
 ```
+## Scan Behavior
+1. Research how to create rules for nmap scans in snort (one resource)
+```sh
+alert tcp any any -> 192.168.1.105 any (msg: "NMAP TCP Scan";sid:10000005;) 
+```
