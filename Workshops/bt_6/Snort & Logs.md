@@ -4,6 +4,14 @@
 1. The attacker is doing a ping sweep of the machines on the network.
 2. The attacker (192.168.56.104) is scanning the ports of 192.168.56.106
 3. The attacker is now browsing the website of the apache server on port 80 of 192.168.56.106.
+
+## Alerting on scans
+### Writing Rules
+3. Create an alert for any ping traffic incoming to your machine; add this rule into your fullstack.rules file.
+```sh
+alert icmp any any <> any any (msg:"We're getting scanned!"; sid:1000001)
+```
+4. Capture packets that contain Metasploitable pinging your Kali machine, then replay that capture through Snort. Observe the alerts from #3 in the snort output.
 ```sh
 root@kali:/media/sf_Downloads/blue_team/Workshops/bt_6# snort -l ./logs -c fullstack.rules -r captured.pcap 
 Running in IDS mode
