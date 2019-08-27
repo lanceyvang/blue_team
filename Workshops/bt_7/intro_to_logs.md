@@ -23,8 +23,37 @@ Mon 31 Oct 2016 07:37:00 AM EDT
 
 
 ## Pcap
-
-<br>
-<br>
-<br>
 https://web.archive.org/web/20190102062652/http://laredo-13.mit.edu/~brendan/regin/pcap/
+
+We had a user that' surfing the internet on IE8 and reading news online. He's possibly updating his Windows computer too.
+
+# Web Proxies
+* What kind of HTTP request(s) are being made?
+    * We have 200 and 304 request  
+* What do the different HTTP status codes mean for each request?
+    * 
+* What story are these logs telling us? (big picture)
+    * We have a user using web proxies to visit travelocity to view vacations in Twin Peaks, California.
+```
+## bluecoat proxy logs
+## http://log-sharing.dreamhosters.com/bluecoat_proxy_big.zip
+## tail -n300 Demo_log_001.log
+## dont `cat` these logs; millions of lines
+
+2005-05-04 17:16:08 1 45.14.4.61 304 TCP_HIT 207 431 GET http hg.travelocity.com.edgesuite.net /graphics/tvly_mc_125x25.gif - - DIRECT 80.67.66.62 image/gif "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" PROXIED Travel - 192.16.170.42 SG-HTTP-Service - none -
+2005-05-04 17:16:08 154 45.14.4.127 200 TCP_NC_MISS 2973 720 GET http images.google.com /images ?q=tbn:-dEjG3JAHxgJ:www.kevcom.com/images/linux/linux.logo.2yp.jpg - DIRECT images.google.com image/jpeg "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/312.1 (KHTML, like Gecko) Safari/312" PROXIED Hacking/Proxy%20Avoidance - 192.16.170.42 SG-HTTP-Service - none -
+2005-05-04 17:16:08 18 45.23.4.216 304 TCP_RESCAN_HIT 422 405 GET http twinpeaksweather.com /java-sys/Dgclock.class - - DIRECT 66.235.216.135 application/octet-stream "Mozilla/4.0 (Windows 2000 5.0) Java/1.5.0_02" PROXIED News/Media - 192.16.170.42 SG-HTTP-Service - none -
+```
+
+## Firewalls
+
+Which protocol is being allowed by UFW?
+* TCP
+Which port is allowed through the firewall?
+* 80
+How many different IP addresses are found in the log?
+* 3
+Which service was MOST likely blocked on UDP/67?
+* DHCP
+
+## Netflow
