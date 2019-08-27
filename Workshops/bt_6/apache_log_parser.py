@@ -2,6 +2,8 @@
 import sys
 import re
 
+print(sys)
+
 def create_dict(content):
     all_ips_li = re.findall(r"[0-9]+\.[0-9]+\.[0-9]+.[0-9]+", content)
     ip_dict = {}
@@ -29,16 +31,16 @@ def print_histogram(dict):
     for ip in final_sort: 
         print(pad_ip(ip) + ' ' + ('*' * dict[ip]) + ' (' + str(dict[ip])+')')
 
-def main():
-    content = open(sys.argv[1], 'r').read()
-    ip_dict = create_dict(content)
-    print_histogram(ip_dict)
+# def main():
+    # content = open(sys.argv[1], 'r').read()
+    # ip_dict = create_dict(content)
+    # print_histogram(ip_dict)
     
 
 # It allows the code in the module to be importable by other modules, without executing the code block beneath on import.
 # https://stackoverflow.com/questions/419163/what-does-if-name-main-do
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 '''
 OUTPUT
