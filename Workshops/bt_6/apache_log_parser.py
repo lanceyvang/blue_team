@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
 '''
 OUTPUT
-$ python apache_log_parser.py apache_log_parser_data1.txt clear
+$ python apache_log_parser.py apache_log_parser_data1.txt
         1.2.3.4 ***** (5)
         6.6.6.6 **** (4) 
         5.6.7.8 **** (4) 
