@@ -57,3 +57,24 @@ Which service was MOST likely blocked on UDP/67?
 * DHCP
 
 ## Netflow
+
+* In Kali, install ntopng: apt install ntopng
+* Download this pcap
+* Run a redis server: redis-server &
+* Run ntopng with that pcap as the interface: ntopng --disable-autologout --disable-login=1 -i ./pcap-file.pcap
+* Open a browser and visit localhost:3000; replace localhost with your Kali ip address to use a browser on your host machine
+* Explore the flows and answer the questions below:
+
+Questions:
+Which sites are users visiting?
+* Google, Facebook, Other, Unknown
+How many unique clients are in the log?
+* 10.0.3.15
+* 172.217.164.164
+* 31.13.66.19
+* 172.217.164.131
+* Other
+Is any client performing any suspicious activity? If so, which client performed the suspicious activity, and what was the target?
+* 10.0.3.15 : digicert.com, lots of UDP activity
+Which DNS server are clients using?
+* 1.1.1.1: Cloudflare
