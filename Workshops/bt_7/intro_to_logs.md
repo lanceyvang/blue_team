@@ -78,3 +78,9 @@ Is any client performing any suspicious activity? If so, which client performed 
 * 10.0.3.15 : digicert.com, lots of UDP activity
 Which DNS server are clients using?
     * 1.1.1.1: Cloudflare
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
