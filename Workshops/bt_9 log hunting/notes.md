@@ -67,5 +67,5 @@ Log 5
 4. What is the likely reason the domains were blocked?
     * The user probably didn't want to send extra data to Microsoft.
 
-![](https://learndotresources.s3.amazonaws.com/workshop/5d4458a5cf11e4000483a2a7/bt8.5.2-1.png)
-![image 2](https://learndotresources.s3.amazonaws.com/workshop/5d4458a5cf11e4000483a2a7/bt8.5.2-3.png)
+![](https://github.com/lanceyvang/blue_team/blob/master/Workshops/bt_9%20log%20hunting/files/bt8.5.2-1.png?raw=true)
+![image 2](https://github.com/lanceyvang/blue_team/blob/master/Workshops/bt_9%20log%20hunting/files/bt8.5.2-3.png?raw=true)
