@@ -54,3 +54,17 @@ Log 4
 * Trying to SSH in and failing.
 
 Log 5
+
+## 5. Detection Alerts
+### Scenario 1: DNS
+1. Evaluate the below screenshots.
+    * Image is from pi-hole, an ad-blocking solution.
+2. Which domains were blocked by the firewall?
+    * v10.events.data.microsoft.com blocked is Microsoft diagnostic data.
+    * settings-win.data.microsoft.com Blocked dynamic configuration updates.
+3. Are the domains potentially malicious?
+    * The domains are probably not malicious.
+4. What is the likely reason the domains were blocked?
+    * The user probably didn't want to send extra data to Microsoft.
+
+![](https://learndotresources.s3.amazonaws.com/workshop/5d4458a5cf11e4000483a2a7/bt8.5.2-1.png)
