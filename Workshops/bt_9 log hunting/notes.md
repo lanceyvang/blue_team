@@ -42,3 +42,15 @@ Aug  6 03:14:30 debian sudo: pam_unix(sudo:auth): authentication failure; lognam
 Aug  6 03:14:50 debian sudo:   debian : 3 incorrect password attempts ; TTY=pts/6 ; PWD=/home/debian ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
 ```
 </details>
+
+* Linux | Trying to access sudo but don't have the priv
+
+* Couldn't authenicate to SUDO
+
+Log 3
+* SSH Logs
+
+Log 4
+* Trying to SSH in and failing.
+
+Log 5
