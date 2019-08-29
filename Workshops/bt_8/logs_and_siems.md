@@ -27,3 +27,5 @@ What application, service, or type of defense might have generated these logs?
 2019-08-05 16:43:18 ALLOW ICMP 192.168.56.7 192.168.56.3 - - 0 - - - - 8 0 - SEND
 2019-08-05 16:43:19 ALLOW ICMP 192.168.56.7 192.168.56.3 - - 0 - - - - 8 0 - SEND
 ```
+What do the logs below show?  
+* The logs show the firwall dropping a lot of ICMP requests for a minute.
