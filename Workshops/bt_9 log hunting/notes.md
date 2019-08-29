@@ -7,7 +7,7 @@
     * 1337 port used
 * Log 3
 ### Host Logs
-<details><summary>Show Log 1</summary>
+<details><summary>Log 1</summary>
 
 ```
 Aug  5 14:09:20 debian sudo:   debian : TTY=pts/0 ; PWD=/home/debian ; USER=root ; COMMAND=/usr/bin/su
@@ -32,7 +32,7 @@ Aug  5 14:09:43 debian sudo: pam_unix(sudo:session): session opened for user roo
 3. Normal?
 4. root | root | no IP
 
-<details><summary>Show Log 2</summary>
+<details><summary>Log 2</summary>
 
 ```
 Aug  6 02:52:28 debian sudo:   debian : 3 incorrect password attempts ; TTY=pts/2 ; PWD=/home/debian ; USER=root ; COMMAND=/usr/bin/su
