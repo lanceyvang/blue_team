@@ -68,3 +68,4 @@ Log 5
     * The user probably didn't want to send extra data to Microsoft.
 
 ![](https://learndotresources.s3.amazonaws.com/workshop/5d4458a5cf11e4000483a2a7/bt8.5.2-1.png)
+![image 2](https://learndotresources.s3.amazonaws.com/workshop/5d4458a5cf11e4000483a2a7/bt8.5.2-3.png)
