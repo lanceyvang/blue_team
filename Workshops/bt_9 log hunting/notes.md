@@ -67,5 +67,16 @@ Log 5
 4. What is the likely reason the domains were blocked?
     * The user probably didn't want to send extra data to Microsoft.
 
+Image 1
 ![](https://github.com/lanceyvang/blue_team/blob/master/Workshops/bt_9%20log%20hunting/files/bt8.5.2-1.png?raw=true)
+
+Image 2
 ![image 2](https://github.com/lanceyvang/blue_team/blob/master/Workshops/bt_9%20log%20hunting/files/bt8.5.2-3.png?raw=true)
+
+### Scenario 2: Antivirus
+1. Which application generated the below detection alerts?
+    * AVG AntiVirus 
+2. Are the detected actions benign or malicious?
+    * Malicous
+3. Are all of the quarantined items in image 2 malicious?
+    * These files are probably malicious.
