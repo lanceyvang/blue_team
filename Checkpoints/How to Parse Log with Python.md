@@ -45,7 +45,7 @@ import re
 
 def main():
     content = open(sys.argv[1], 'r').read()
-    
+
     # To create a regular expression start with r and use quotations around the regular expression pattern.
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
 
@@ -74,7 +74,7 @@ def main():
     # if the ip isn't in the ip_dictionary then add that ip to ip_dictionary set its value to 1.
     for ip in all_matches_li:
         if ip in ip_dictionary: ip_dictionary[ip] += 1
-        else: ip_dictionary = 1
+        else: ip_dictionary[ip] = 1
 
 if __name__ '__main__':
     main()
