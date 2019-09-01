@@ -12,7 +12,9 @@ def main():
     # opens the content of the file into one very long string
     content = open(sys.argv[1], 'r').read()
 
-# Written this way to make exporting easier. The if-statement makes it so main will only run if the python file is ran directly. If you want more details, you can read here: https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+# Written this way to make exporting easier. 
+# The if-statement makes it so main will only run if the python file is ran directly. 
+# If you want more details, you can read here: https://stackoverflow.com/questions/419163/what-does-if-name-main-do
 if __name__ '__main__':
     main()
 ```
@@ -46,7 +48,7 @@ import re
 def main():
     content = open(sys.argv[1], 'r').read()
 
-    # To create a regular expression start with r and use quotations around the regular expression pattern.
+    # To create a regular expression, start with r and use quotations around the regular expression pattern.
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
 
     # To find all the matches we use re.findall, this will return the result in a list.
@@ -66,7 +68,7 @@ import re
 def main():
     content = open(sys.argv[1], 'r').read()
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
-    all_matches_li = re.findall(pattern, content)
+    all_matches_li = re.findall(regular_expression, content)
 
     ip_dictionary = {}
 
