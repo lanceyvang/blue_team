@@ -45,8 +45,10 @@ import re
 
 def main():
     content = open(sys.argv[1], 'r').read()
+    
     # To create a regular expression start with r and use quotations around the regular expression pattern.
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
+
     # To find all the matches we use re.findall, this will return the result in a list.
     all_matches_li = re.findall(pattern, content)
 
@@ -68,7 +70,8 @@ def main():
 
     ip_dictionary = {}
 
-    # Go through all_matches_li and if the ip is in ip_dictionary then increase the current value by 1, if the ip isn't in the ip_dictionary then add that ip to ip_dictionary set its value to 1.
+    # Go through all_matches_li and if the ip is in ip_dictionary then increase the current value by 1, 
+    # if the ip isn't in the ip_dictionary then add that ip to ip_dictionary set its value to 1.
     for ip in all_matches_li:
         if ip in ip_dictionary: ip_dictionary[ip] += 1
         else: ip_dictionary = 1
