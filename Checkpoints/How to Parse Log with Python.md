@@ -53,6 +53,10 @@ def main():
 
     # To find all the matches we use re.findall, this will return the result in a list.
     all_matches_li = re.findall(pattern, content)
+    
+    # print(all_matches_li)
+    # ['65.240.185.205', '65.240.185.205', '65.240.185.205', ...]
+
 
 if __name__ == '__main__':
     main()
