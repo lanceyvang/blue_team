@@ -15,7 +15,7 @@ def main():
 # Written this way to make exporting easier. 
 # The if-statement makes it so main will only run if the python file is ran directly. 
 # If you want more details, you can read here: https://stackoverflow.com/questions/419163/what-does-if-name-main-do
-if __name__ '__main__':
+if __name__ == '__main__':
     main()
 ```
 
@@ -54,7 +54,7 @@ def main():
     # To find all the matches we use re.findall, this will return the result in a list.
     all_matches_li = re.findall(pattern, content)
 
-if __name__ '__main__':
+if __name__ == '__main__':
     main()
 ```
 
@@ -78,10 +78,13 @@ def main():
         if ip in ip_dictionary: ip_dictionary[ip] += 1
         else: ip_dictionary[ip] = 1
 
-if __name__ '__main__':
+    # print(ip_dictionary) 
+    # => {'84.68.192.198': 36, '9.141.237.194': 40, ...}
+
+if __name__ == '__main__':
     main()
 ```
-## Sorting our Matches
+## Sorting the Matches
 ```py 
 #!/usr/bin/env python3
 import sys
@@ -104,10 +107,46 @@ def main():
 
     # Sorted takes in something that's iterable (list, dictionary, etc.)
     # and sorts it based on the key which is a function that decides the sorting order.
-    # Set reverse to True for greatest to least sorting and False for least to greatest sorting
-    sorted_dictionary = sorted(ip_dict, key=compare_value; reverse=True)
+    # Set reverse to True for greatest-to-least sorting and False for least-to-greatest sorting
+    sorted_dictionary = sorted(ip_dictionary, key=compare_value; reverse=True)
+    # print(sorted_dictionary)
+    # => ['157.231.148.18', '70.68.140.137', '83.1.240.233',...]
 
-if __name__ '__main__':
+if __name__ == '__main__':
     main()
 ```
-## Display our Result 
+## Display the Results 
+```py 
+#!/usr/bin/env python3
+import sys
+import re
+
+def main():
+    content = open(sys.argv[1], 'r').read()
+    regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
+    all_matches_li = re.findall(regular_expression, content)
+
+    ip_dictionary = {}
+
+    for ip in all_matches_li:
+        if ip in ip_dictionary: ip_dictionary[ip] += 1
+        else: ip_dictionary[ip] = 1
+
+    def compare_value(ip):
+        reurn ip_dictionary[ip]
+
+    sorted_dictionary = sorted(ip_dictionary, key=compare_value; reverse=True)
+
+    # Loops through the top 5 items in the dictionary and print their key and value.
+    for ip in sorted_dictionary[0:5]:
+        print(ip, ip_dictionary[ip])
+
+    # python parse_log.py log.txt =>
+    # ('70.68.140.137', 1574)
+    # ('83.1.240.233', 1271)
+    # ('38.93.253.216', 1084)
+    # ('143.156.1.2', 908)
+
+if __name__ == '__main__':
+    main()
+```

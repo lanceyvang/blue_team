@@ -27,7 +27,7 @@ def main():
 
     sorted_dict = sorted(ip_dict, key=compare_count, reverse=True)
 
-    for ip in sorted_dict:
+    for ip in sorted_dict[:5]:
         print(ip, ip_dict[ip])
 
 if __name__ == '__main__':
