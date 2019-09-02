@@ -81,3 +81,33 @@ def main():
 if __name__ '__main__':
     main()
 ```
+## Sorting our Matches
+```py 
+#!/usr/bin/env python3
+import sys
+import re
+
+def main():
+    content = open(sys.argv[1], 'r').read()
+    regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
+    all_matches_li = re.findall(regular_expression, content)
+
+    ip_dictionary = {}
+
+    for ip in all_matches_li:
+        if ip in ip_dictionary: ip_dictionary[ip] += 1
+        else: ip_dictionary[ip] = 1
+
+    # This function takes in an ip and returns its value from the ip_dictionary.
+    def compare_value(ip):
+        reurn ip_dictionary[ip]
+
+    # Sorted takes in something that's iterable (list, dictionary, etc.)
+    # and sorts it based on the key which is a function that decides the sorting order.
+    # Set reverse to True for greatest to least sorting and False for least to greatest sorting
+    sorted_dictionary = sorted(ip_dict, key=compare_value; reverse=True)
+
+if __name__ '__main__':
+    main()
+```
+## Display our Result 

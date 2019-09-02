@@ -2,8 +2,6 @@
 import sys
 import re
 
-print(sys)
-
 def create_dict(content):
     all_ips_li = re.findall(r"[0-9]+\.[0-9]+\.[0-9]+.[0-9]+", content)
     ip_dict = {}

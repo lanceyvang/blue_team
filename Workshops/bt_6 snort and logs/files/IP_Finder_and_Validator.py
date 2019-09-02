@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import re
-​
+
 def create_content():
     file = open(sys.argv[1], 'r')
     content = file.read()
