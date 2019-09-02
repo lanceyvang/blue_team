@@ -52,7 +52,7 @@ def main():
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
 
     # To find all the matches we use re.findall, this will return the result in a list.
-    all_matches_li = re.findall(pattern, content)
+    all_matches_li = re.findall(regular_expression, content)
     
     # print(all_matches_li)
     # ['65.240.185.205', '65.240.185.205', '65.240.185.205', ...]
