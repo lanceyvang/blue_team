@@ -14,7 +14,8 @@ def main():
 
 # Written this way to make exporting easier. 
 # The if-statement makes it so main will only run if the python file is ran directly. 
-# If you want more details, you can read here: https://stackoverflow.com/questions/419163/what-does-if-name-main-do
+# If you want more details, you can read here: 
+# https://stackoverflow.com/questions/419163/what-does-if-name-main-do
 if __name__ == '__main__':
     main()
 ```
@@ -51,7 +52,7 @@ def main():
     # To create a regular expression, start with r and use quotations around the regular expression pattern.
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
 
-    # To find all the matches we use re.findall, this will return the result in a list.
+    # To find all the matches we use the re method, re.findall, this will return the result in a list.
     all_matches_li = re.findall(regular_expression, content)
     
     # print(all_matches_li)
@@ -162,5 +163,5 @@ python parse_log.py log.txt =>
 ```
 
 ## Tips
-* Test your code as you write it to catch errors.
-* Copy a few lines from the log into a new log and use that log to help you write your code.
+* Test your code, using `print()`, as you write it to catch errors.
+* Copy a few lines from the log into a new log and use that smaller log to help you write your code.
