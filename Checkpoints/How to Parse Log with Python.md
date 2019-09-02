@@ -25,7 +25,7 @@ The next step is deciding what pattern in the log you want to search for and cre
 ### Find IP Address
 * `[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}`  
     * `[0-9]{1,3}` means any number between 0 and 9, at least 1 digit and max 3 digit.
-    * `\.` the backslash is used to escape a get the literal value.
+    * `\.` the backslash is used to escape and get the literal value for ".", in regular expression "." means any character except newline.
     * Use only if all the IPs in the log are valid, matches 0.0.0.0 to 999.999.999.999
 
 ### Validate IP
