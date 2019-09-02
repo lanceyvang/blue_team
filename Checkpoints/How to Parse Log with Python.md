@@ -109,7 +109,7 @@ def main():
     # and sorts it based on the key which is a function that decides the sorting order.
     # Set reverse to True for greatest-to-least sorting and False for least-to-greatest sorting
     sorted_dictionary = sorted(ip_dictionary, key=compare_value; reverse=True)
-    
+
     # print(sorted_dictionary)
     # => ['157.231.148.18', '70.68.140.137', '83.1.240.233',...]
 
@@ -142,12 +142,21 @@ def main():
     for ip in sorted_dictionary[0:5]:
         print(ip, ip_dictionary[ip])
 
-    # python parse_log.py log.txt =>
-    # ('70.68.140.137', 1574)
-    # ('83.1.240.233', 1271)
-    # ('38.93.253.216', 1084)
-    # ('143.156.1.2', 908)
-
 if __name__ == '__main__':
     main()
 ```
+
+## Running the Python Script
+```
+python parse_log.py log.txt =>
+
+('157.231.148.18', 3861)
+('70.68.140.137', 1574)
+('83.1.240.233', 1271)
+('38.93.253.216', 1084)
+('143.156.1.2', 908)
+```
+
+## Tips
+* Test your code as you write it to catch errors.
+* Copy a few lines from the log into a new log and use that log to help you write your code.
