@@ -6,6 +6,7 @@ def main():
     content = open(sys.argv[1], 'r').read()
     regular_expression = r"(?<=EST;)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=;.+FTP;Request)"
     all_matches_li = re.findall(regular_expression, content)
+    
     # print(all_matches_li)
     # ['65.240.185.205', '65.240.185.205', '65.240.185.205', ...]
 

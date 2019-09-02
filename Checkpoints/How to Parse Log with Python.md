@@ -109,6 +109,7 @@ def main():
     # and sorts it based on the key which is a function that decides the sorting order.
     # Set reverse to True for greatest-to-least sorting and False for least-to-greatest sorting
     sorted_dictionary = sorted(ip_dictionary, key=compare_value; reverse=True)
+    
     # print(sorted_dictionary)
     # => ['157.231.148.18', '70.68.140.137', '83.1.240.233',...]
 
