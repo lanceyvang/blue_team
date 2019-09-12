@@ -165,3 +165,14 @@ python parse_log.py log.txt =>
 ## Tips
 * Test your code, using `print()`, as you write it to catch errors.
 * Copy a few lines from the log into a new log and use that smaller log to help you write your code.
+
+1. How many times does the most common source IP address appear in the log?
+2. 
+3. What is the most common FTP client IP address?
+    * f = open(filename)
+    * f.readlines()
+    * tcp.dstport() == 21
+
+```sh
+cut -d';' -f3,6 log.txt |grep ';21$' | cut -d';' -f1|sort |uniq -c|sort -r|head
+```
